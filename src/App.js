@@ -1,10 +1,16 @@
 import "./App.css";
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
 
 function App() {
   return (
-    <div>
-      <h1>Let's built a image finder app</h1>
-    </div>
+    <MuiThemeProvider>
+      <div>
+        <Navbar />
+        <Search />
+      </div>
+    </MuiThemeProvider>
   );
 }
 
