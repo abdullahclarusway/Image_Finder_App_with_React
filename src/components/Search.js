@@ -14,11 +14,16 @@ const Search = () => {
   const apiKey = "20182889-5b3d68cb1fa621497e271db7b";
 
   const handleChange = (e) => {
-    setSearchText(e.target.value);
-    findImage();
+    const val = e.target.value;
+    setSearchText(val);
+    if (val === "") {
+      setImages([]);
+    } else {
+      findImage(val);
+    }
   };
 
-  const findImage = () => {
+  const findImage = (searchText) => {
     axios
       .get(
         `${apiUrl}/?key=${apiKey}&q=${searchText}&image_type=photo&per_page=${amount}&safesearch=true`
